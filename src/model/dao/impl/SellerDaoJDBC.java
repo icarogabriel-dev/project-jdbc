@@ -67,7 +67,7 @@ public class SellerDaoJDBC implements SellerDao {
 
         try {
             st = conn.prepareStatement(
-                    "update seller "
+                        "update seller "
                         + "set Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
                         + "where Id = ?",
                     Statement.RETURN_GENERATED_KEYS);
@@ -92,6 +92,22 @@ public class SellerDaoJDBC implements SellerDao {
     @Override
     public void deleteById(Integer id) {
 
+        PreparedStatement st = null;
+
+        try {
+            st = conn.prepareStatement("delete from seller where Id = ?");
+
+            st.setInt(1, id);
+
+            st.executeUpdate();
+        }
+        catch (SQLException e) {
+            throw new DbException("Error: " + e.getMessage());
+        }
+        finally {
+            DB.closeStatement(st);
+        }
+
     }
 
     @Override
@@ -102,7 +118,7 @@ public class SellerDaoJDBC implements SellerDao {
 
         try {
             st = conn.prepareStatement(
-                "select seller.*, department.Name as DepName "
+                    "select seller.*, department.Name as DepName "
                     + " from seller inner join department "
                     + "on seller.DepartmentId = department.Id "
                     + "where seller.id = ?");
@@ -153,7 +169,7 @@ public class SellerDaoJDBC implements SellerDao {
 
         try {
             st = conn.prepareStatement(
-            "select seller.*, department.Name as DepName "
+                "select seller.*, department.Name as DepName "
                 + "from seller inner join department "
                 + "on seller.DepartmentId = department.Id "
                 + "order by Name");
@@ -194,7 +210,7 @@ public class SellerDaoJDBC implements SellerDao {
 
         try {
             st = conn.prepareStatement(
-            "select seller.*, department.Name as DepName "
+                "select seller.*, department.Name as DepName "
                 + "from seller inner join department "
                 + "on seller.DepartmentId = department.Id "
                 + "where DepartmentId = ? "
