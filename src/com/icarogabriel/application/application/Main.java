@@ -1,9 +1,9 @@
-package application;
+package com.icarogabriel.application.application;
 
-import model.dao.DaoFactory;
-import model.dao.SellerDao;
-import model.entities.Department;
-import model.entities.Seller;
+import com.icarogabriel.application.model.dao.DaoFactory;
+import com.icarogabriel.application.model.dao.SellerDao;
+import com.icarogabriel.application.model.entities.Department;
+import com.icarogabriel.application.model.entities.Seller;
 
 import java.util.Date;
 import java.util.List;
@@ -20,7 +20,7 @@ public class Main {
         System.out.println(seller);
 
         System.out.println("\n=== TEST 2: Seller FindByDepartment ===");
-        Department department = new Department(2, null);
+        Department department = new Department(8, null);
         List<Seller> list = sellerDao.findByDepartment(department);
         for (Seller obj : list) {
             System.out.println(obj);
@@ -38,20 +38,19 @@ public class Main {
         System.out.println("Inserted! New id = " + newSeller.getId());
 
         System.out.println("\n=== TEST 5: Seller Update ===");
-        seller = sellerDao.findById(9);
-        seller.setName("Felipe Mendes");
-        seller.setEmail("felipe@gmail.com");
+        seller = sellerDao.findById(8);
+        seller.setName("Lorrayne Bezerra");
+        seller.setEmail("lorraynebezerra@gmail.com");
         seller.setBirthDate(new Date());
-        seller.setBaseSalary(1990.0);
+        seller.setBaseSalary(1800.0);
         sellerDao.update(seller);
         System.out.println("Update completed!");
 
-        System.out.println("\n=== TEST 5: Seller Update ===");
+        /*System.out.println("\n=== TEST 5: Seller Update ===");
         System.out.print("Enter id for delete test: ");
         int id = sc.nextInt();
         sellerDao.deleteById(id);
         System.out.println("Delete completed!");
-        sc.close();
-
+        sc.close();*/
     }
 }

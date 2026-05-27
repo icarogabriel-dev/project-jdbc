@@ -1,4 +1,6 @@
-package db;
+package com.icarogabriel.application.db;
+
+import com.icarogabriel.application.exceptions.DbException;
 
 import java.io.FileInputStream;
 import java.io.IOException;

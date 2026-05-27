@@ -1,4 +1,4 @@
-package model.entities;
+package com.icarogabriel.application.model.entities;
 
 import java.io.Serializable;
 

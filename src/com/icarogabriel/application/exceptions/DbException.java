@@ -1,4 +1,4 @@
-package db;
+package com.icarogabriel.application.exceptions;
 
 public class DbException extends RuntimeException{
 
