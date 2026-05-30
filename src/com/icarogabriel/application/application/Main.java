@@ -1,9 +1,9 @@
 package com.icarogabriel.application.application;
 
-import com.icarogabriel.application.model.dao.DaoFactory;
+import com.icarogabriel.application.model.dao.factory.DaoFactory;
 import com.icarogabriel.application.model.dao.SellerDao;
-import com.icarogabriel.application.model.entities.Department;
-import com.icarogabriel.application.model.entities.Seller;
+import com.icarogabriel.application.model.domain.Department;
+import com.icarogabriel.application.model.domain.Seller;
 
 import java.util.Date;
 import java.util.List;

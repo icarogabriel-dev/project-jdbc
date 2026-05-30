@@ -1,7 +1,7 @@
 package com.icarogabriel.application.model.dao;
 
-import com.icarogabriel.application.model.entities.Department;
-import com.icarogabriel.application.model.entities.Seller;
+import com.icarogabriel.application.model.domain.Department;
+import com.icarogabriel.application.model.domain.Seller;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 package com.icarogabriel.application.model.dao.impl;
 
-import com.icarogabriel.application.db.DB;
-import com.icarogabriel.application.exceptions.DbException;
+import com.icarogabriel.application.config.DB;
+import com.icarogabriel.application.model.exceptions.DbException;
 import com.icarogabriel.application.model.dao.SellerDao;
-import com.icarogabriel.application.model.entities.Department;
-import com.icarogabriel.application.model.entities.Seller;
+import com.icarogabriel.application.model.domain.Department;
+import com.icarogabriel.application.model.domain.Seller;
 
 import java.sql.*;
 import java.util.ArrayList;

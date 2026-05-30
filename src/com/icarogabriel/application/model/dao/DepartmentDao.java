@@ -1,6 +1,6 @@
 package com.icarogabriel.application.model.dao;
 
-import com.icarogabriel.application.model.entities.Department;
+import com.icarogabriel.application.model.domain.Department;
 
 import java.util.List;
 
