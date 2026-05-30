@@ -13,7 +13,7 @@ public class DepartmentMain {
         Scanner sc = new Scanner(System.in);
         DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 
-        System.out.println("=== TEST 1: Seller Insert ===");
+        System.out.println("=== TEST 1: Department Insert ===");
         Department department = new Department(null, "Music");
         departmentDao.insert(department);
         System.out.println("Inserted! New id = " + department.getId());
