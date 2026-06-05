@@ -6,6 +6,7 @@ import com.icarogabriel.application.domain.entities.Department;
 import com.icarogabriel.application.domain.exceptions.DbException;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentDaoJDBC implements DepartmentDao {
@@ -106,13 +107,40 @@ public class DepartmentDaoJDBC implements DepartmentDao {
             throw new DbException("Error: " + e.getMessage());
         }
         finally {
-            DB.closeResultSet(rs);
             DB.closeStatement(st);
+            DB.closeResultSet(rs);
         }
     }
 
     @Override
     public List<Department> findAll() {
-        return List.of();
+
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+            st = conn.prepareStatement(
+                    "select * from department");
+
+            rs = st.executeQuery();
+
+            List<Department> list = new ArrayList<>();
+
+            while (rs.next()) {
+                Department obj = new Department();
+                obj.setId(rs.getInt("Id"));
+                obj.setName(rs.getString("Name"));
+                list.add(obj);
+            }
+            return list;
+
+        }
+        catch (SQLException e) {
+            throw new DbException("Error: " + e.getMessage());
+        }
+        finally {
+            DB.closeStatement(st);
+            DB.closeResultSet(rs);
+        }
     }
 }
