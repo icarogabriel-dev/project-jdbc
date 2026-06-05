@@ -1,9 +1,9 @@
-package com.icarogabriel.application.model.dao.impl;
+package com.icarogabriel.application.domain.dao.impl;
 
 import com.icarogabriel.application.config.DB;
-import com.icarogabriel.application.model.dao.DepartmentDao;
-import com.icarogabriel.application.model.domain.Department;
-import com.icarogabriel.application.model.exceptions.DbException;
+import com.icarogabriel.application.domain.dao.DepartmentDao;
+import com.icarogabriel.application.domain.entities.Department;
+import com.icarogabriel.application.domain.exceptions.DbException;
 
 import java.sql.*;
 import java.util.List;
@@ -57,8 +57,8 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
         try {
             st = conn.prepareStatement(
-                    "update department"
-                    + "set Name = ?"
+                    "update department "
+                    + "set Name = ? "
                     + "where Id = ?",
                     Statement.RETURN_GENERATED_KEYS);
 
@@ -82,7 +82,33 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
     @Override
     public Department findById(Integer id) {
-        return null;
+
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+            st = conn.prepareStatement(
+                    "select * from department "
+                     + "where Id = ?");
+
+            st.setInt(1, id);
+            rs = st.executeQuery();
+
+            if (rs.next()) {
+                Department obj = new Department();
+                obj.setId(rs.getInt("Id"));
+                obj.setName(rs.getString("Name"));
+                return obj;
+            }
+            return null;
+        }
+        catch (SQLException e) {
+            throw new DbException("Error: " + e.getMessage());
+        }
+        finally {
+            DB.closeResultSet(rs);
+            DB.closeStatement(st);
+        }
     }
 
     @Override

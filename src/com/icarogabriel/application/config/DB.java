@@ -1,6 +1,6 @@
 package com.icarogabriel.application.config;
 
-import com.icarogabriel.application.model.exceptions.DbException;
+import com.icarogabriel.application.domain.exceptions.DbException;
 
 import java.io.FileInputStream;
 import java.io.IOException;

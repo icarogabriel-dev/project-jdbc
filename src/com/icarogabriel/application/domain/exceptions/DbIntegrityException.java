@@ -1,4 +1,4 @@
-package com.icarogabriel.application.model.exceptions;
+package com.icarogabriel.application.domain.exceptions;
 
 public class DbIntegrityException extends RuntimeException{
 

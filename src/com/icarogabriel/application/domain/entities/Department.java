@@ -1,4 +1,4 @@
-package com.icarogabriel.application.model.domain;
+package com.icarogabriel.application.domain.entities;
 
 import java.io.Serializable;
 
