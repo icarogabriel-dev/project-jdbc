@@ -46,11 +46,11 @@ public class SellerMain {
         sellerDao.update(seller);
         System.out.println("Update completed!");
 
-        /*System.out.println("\n=== TEST 5: Seller Update ===");
+        System.out.println("\n=== TEST 5: Seller Delete ===");
         System.out.print("Enter id for delete test: ");
         int id = sc.nextInt();
         sellerDao.deleteById(id);
         System.out.println("Delete completed!");
-        sc.close();*/
+        sc.close();
     }
 }
